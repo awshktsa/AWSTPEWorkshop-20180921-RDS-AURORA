@@ -7,27 +7,27 @@ Pick one region close to you.
 Step 2: Create a Aurora DB (Serverless)
 * **AWS Console > Services > RDS > Create Database > Select Enging > Amazon Aurora**
 
-![AWS Workshop Series - createrdsaurora](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180921-RDS-AURORA/master/images/createrdsaurora.png)
+![AWS Workshop Series - createrdsaurora](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/createrdsaurora.png)
 
 - We go through latest type "Serverless" for our workshop first
 
-![AWS Workshop Series - auroraserverless](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180921-RDS-AURORA/master/images/auroraserverless.png)
+![AWS Workshop Series - auroraserverless](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/auroraserverless.png)
 
 - We go through latest type "Serverless" for our workshop first, and setup the *identifer*, *DB user*, and *DB Password*.
 
-![AWS Workshop Series - inputdbuserpassword](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180921-RDS-AURORA/master/images/inputdbuserpassword.png)
+![AWS Workshop Series - inputdbuserpassword](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/inputdbuserpassword.png)
 
 - Next step, we need to setup the *Resource Allocation* for your Aurora Serverless.
 
-![AWS Workshop Series - auroraserverlesscapacity](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180921-RDS-AURORA/master/images/auroraserverlesscapacity.png)
+![AWS Workshop Series - auroraserverlesscapacity](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/auroraserverlesscapacity.png)
 
 - Select the *Parameter Group* for your database instance.
 
-![AWS Workshop Series - pickupparametergroup](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180921-RDS-AURORA/master/images/pickupparametergroup.png)
+![AWS Workshop Series - pickupparametergroup](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/pickupparametergroup.png)
 
 - Select DB *VPC* and *Subnet Group* for network setting.
 
-![AWS Workshop Series - dbsubnetgroup](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180921-RDS-AURORA/master/images/dbsubnetgroup.png)
+![AWS Workshop Series - dbsubnetgroup](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/dbsubnetgroup.png)
 
 
 Step 3:
@@ -69,7 +69,7 @@ Restore a snapshot to a new Instance
 - Select Correct Snapshot you created in Step5 > Actions > Restore Snapshot
 - Pick *Provisioned* this time, and enable the **Back Track**
 
-![AWS Workshop Series - aurorabacktrack](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180921-RDS-AURORA/master/images/aurorabacktrack.png)
+![AWS Workshop Series - aurorabacktrack](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/aurorabacktrack.png)
 
 Step 7:
 Create a new RDS-MySQL Cluster with Multi-AZ setting
@@ -86,7 +86,7 @@ Workshop Challenge:
 Try to Create a Aurora Replica from MySQL-Cluster
 - **AWS Console > Services > RDS > Parameter Group > Create Parameter Group** 
 
-![AWS Workshop Series - parametergroup](https://raw.githubusercontent.com/juntinyeh/AWSWorkshop-20180921-RDS-AURORA/master/images/parametergroup.png)
+![AWS Workshop Series - parametergroup](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/parametergroup.png)
 
 - Give a proper name, and select correct group family. 
 - Click your parameter group > Edit Parameter
