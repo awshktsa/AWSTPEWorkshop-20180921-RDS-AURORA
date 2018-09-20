@@ -94,11 +94,18 @@ Restore a snapshot to a new Instance
 - Create Instance > Select DB Engine as MySQL
 - Pick **Dev/Test - MySQL**, and go next step
 - Click **Multi-AZ** and set the identifer, account and password.
+- Check the Failover feature, and reboot feature
+
+```
+We have setup our first Aurora Instance as Serverless mode, some of you might already found that, you cannot find your db in "Instance List". We have set the timer to 5 minutes as default, if your serverless db has no access in last 5 minutes, it will going into sleep mode right away.
+
+Try to connect your database through your EC2 again, and it will back to live right away.
+```
 
 ------
 
 ### Step 8:
-* Check ReadReplica and Failover feature on your RDS instance
+* Check ReadReplica on your RDS instance
 
 ![AWS Workshop Series - replicapromote](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/replicapromote.png)
 
@@ -115,6 +122,7 @@ Restore a snapshot to a new Instance
 ------
 
 `Workshop Challenge:`
+
 Try to edit the Parameter Group for more advanced setting
 - **AWS Console > Services > RDS > Parameter Group > Create Parameter Group** 
 
@@ -124,7 +132,7 @@ Try to edit the Parameter Group for more advanced setting
 - Click your parameter group > Edit Parameter
 - Setup the *binlog_format* anything but `OFF`
 - Create a mysql-slave on your EC2, set the master as your RDS server.
-
+* You might want to check the official document (https://dev.mysql.com/doc/refman/8.0/en/replication-howto.html) from MySQL
 
 ## After Workshop
 1. Remember to delete the EC2, all the RDS and Aurora Instance, and check those snapshot we created in workshop.
