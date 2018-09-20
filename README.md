@@ -1,4 +1,5 @@
 # AWSTPEWorkshop-20180921-RDS-AURORA
+For this workshop, we introduce the main feature with Aurora, also combinded with RDS-MySQL. It helps audience to understand the difference between Aurora and My-SQL. We also talk about the Read-Replica setting, how we convert or migrate our database from RDS-MySQL to Aurora
 
 Step 1:
 * Switch Region on the AWS console, a drag down menu near right-up corner.
@@ -63,6 +64,9 @@ Step 5:
 - Select Correct DB which you created in Step2 > Actions > Take snapshot
 - Give a name to this snap shot
 
+
+![AWS Workshop Series - dbbackuprestore](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/backuprestore.png)
+
 Step 6:
 Restore a snapshot to a new Instance
 - **AWS Console > Services > RDS > Snapshots**
@@ -72,18 +76,31 @@ Restore a snapshot to a new Instance
 ![AWS Workshop Series - aurorabacktrack](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/aurorabacktrack.png)
 
 Step 7:
-Create a new RDS-MySQL Cluster with Multi-AZ setting
+* Create a new RDS-MySQL Cluster with Multi-AZ setting
 - **AWS Console > Services > RDS > Instances**
 - Create Instance > Select DB Engine as MySQL
 - Pick **Dev/Test - MySQL**, and go next step
 - Click **Multi-AZ** and set the identifer, account and password.
 
 Step 8:
-- Check ReadReplica and Failover feature on your RDS instance
+* Check ReadReplica and Failover feature on your RDS instance
 
-==
-Workshop Challenge:
-Try to Create a Aurora Replica from MySQL-Cluster
+![AWS Workshop Series - replicapromote](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/replicapromote.png)
+
+- Start from the MySQL Instance you created at Step7 > Instance Actions
+- You can create a MySQL ReadReplica 
+- You can also create an Aurora ReadReplica, we choose this one
+
+![AWS Workshop Series - aurorareplica](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/aurorareplica.png)
+
+- Once your reaplica is ready, please check the Instance list, and you will find "Promote Read Replica" Feature now is available. This feature can help you to clone a latest database for branch, testing and verification purpose.
+
+![AWS Workshop Series - promotereplica](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/promotereplica.png)
+
+
+
+`Workshop Challenge:`
+Try to edit the Parameter Group for more advanced setting
 - **AWS Console > Services > RDS > Parameter Group > Create Parameter Group** 
 
 ![AWS Workshop Series - parametergroup](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/parametergroup.png)
@@ -92,7 +109,5 @@ Try to Create a Aurora Replica from MySQL-Cluster
 - Click your parameter group > Edit Parameter
 - Setup the *binlog_format* anything but `OFF`
 - Create a mysql-slave on your EC2, set the master as your RDS server.
-
-- Refer to (https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.External.Repl.html) and setup a master-master pair.
 
 
