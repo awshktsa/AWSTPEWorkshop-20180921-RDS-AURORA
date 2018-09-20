@@ -96,12 +96,6 @@ Restore a snapshot to a new Instance
 - Click **Multi-AZ** and set the identifer, account and password.
 - Check the Failover feature, and reboot feature
 
-```
-We have setup our first Aurora Instance as Serverless mode, some of you might already found that, you cannot find your db in "Instance List". We have set the timer to 5 minutes as default, if your serverless db has no access in last 5 minutes, it will going into sleep mode right away.
-
-Try to connect your database through your EC2 again, and it will back to live right away.
-```
-
 ------
 
 ### Step 8:
@@ -118,6 +112,18 @@ Try to connect your database through your EC2 again, and it will back to live ri
 - Once your reaplica is ready, please check the Instance list, and you will find "Promote Read Replica" Feature now is available. This feature can help you to clone a latest database for branch, testing and verification purpose.
 
 ![AWS Workshop Series - promotereplica](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/promotereplica.png)
+
+------
+
+```
+Note:
+We have setup our first Aurora Instance as Serverless mode, 
+some of you might already found that, you cannot find your db in "Instance List". 
+We have set the timer to 5 minutes as default, if your serverless db has no access in last 5 minutes, 
+it will going into sleep mode right away.
+
+Try to connect your database through your EC2 again, and it will back to live right away.
+```
 
 ------
 
