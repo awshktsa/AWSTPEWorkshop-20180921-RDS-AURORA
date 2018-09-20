@@ -1,11 +1,15 @@
 # AWSTPEWorkshop-20180921-RDS-AURORA
 For this workshop, we introduce the main feature with Aurora, also combinded with RDS-MySQL. It helps audience to understand the difference between Aurora and My-SQL. We also talk about the Read-Replica setting, how we convert or migrate our database from RDS-MySQL to Aurora
 
-Step 1:
+------
+
+### Step 1:
 * Switch Region on the AWS console, a drag down menu near right-up corner.
 Pick one region close to you.
 
-Step 2: Create a Aurora DB (Serverless)
+------
+
+### Step 2: Create a Aurora DB (Serverless)
 * **AWS Console > Services > RDS > Create Database > Select Enging > Amazon Aurora**
 
 ![AWS Workshop Series - createrdsaurora](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/createrdsaurora.png)
@@ -30,8 +34,9 @@ Step 2: Create a Aurora DB (Serverless)
 
 ![AWS Workshop Series - dbsubnetgroup](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/dbsubnetgroup.png)
 
+------
 
-Step 3:
+### Step 3:
 * Check if you already have a EC2 Key pair in your selected region. 
 * If not, create one through **AWS Console > EC2 > Key Pairs > Create Key Pair**. 
 * Remember to download the private key(.pem) and well saved. 
@@ -41,7 +46,9 @@ Step 3:
 
 * If you are windows user, and you should download putty.exe and puttygen.exe from [Here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html). And also check the document [Here](https://www.ssh.com/ssh/putty/windows/puttygen) if you don't know how to convert .pem to .ppk
 
-Step 4:
+------
+
+### Step 4:
 * Launch a new EC2 instance to operate your database in VPC
 - **AWS Console > Services > EC2 > Launch Instance **
 - Select Amazon Linux 2 with *Free tier eligible* label, with proper instance type (ex: t2.micro / t3.micro)
@@ -58,7 +65,9 @@ yum install mysql
 > mysql -h YOUR-AURORA-ENDPOINT -u YOUR-AURORA-USER -p
 ```
 
-Step 5:
+------
+
+### Step 5:
 * Practice how to take a DB Snapshot and restore to a new instance/cluster
 - **AWS Console > Services > RDS > Cluster**
 - Select Correct DB which you created in Step2 > Actions > Take snapshot
@@ -67,7 +76,9 @@ Step 5:
 
 ![AWS Workshop Series - dbbackuprestore](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/backuprestore.png)
 
-Step 6:
+------
+
+### Step 6:
 Restore a snapshot to a new Instance
 - **AWS Console > Services > RDS > Snapshots**
 - Select Correct Snapshot you created in Step5 > Actions > Restore Snapshot
@@ -75,14 +86,18 @@ Restore a snapshot to a new Instance
 
 ![AWS Workshop Series - aurorabacktrack](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/aurorabacktrack.png)
 
-Step 7:
+------
+
+### Step 7:
 * Create a new RDS-MySQL Cluster with Multi-AZ setting
 - **AWS Console > Services > RDS > Instances**
 - Create Instance > Select DB Engine as MySQL
 - Pick **Dev/Test - MySQL**, and go next step
 - Click **Multi-AZ** and set the identifer, account and password.
 
-Step 8:
+------
+
+### Step 8:
 * Check ReadReplica and Failover feature on your RDS instance
 
 ![AWS Workshop Series - replicapromote](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/replicapromote.png)
@@ -97,7 +112,7 @@ Step 8:
 
 ![AWS Workshop Series - promotereplica](https://github.com/juntinyeh/AWSTPEWorkshop-20180921-RDS-AURORA/blob/master/images/promotereplica.png)
 
-
+------
 
 `Workshop Challenge:`
 Try to edit the Parameter Group for more advanced setting
@@ -111,3 +126,5 @@ Try to edit the Parameter Group for more advanced setting
 - Create a mysql-slave on your EC2, set the master as your RDS server.
 
 
+## After Workshop
+1. Remember to delete the EC2, all the RDS and Aurora Instance, and check those snapshot we created in workshop.
